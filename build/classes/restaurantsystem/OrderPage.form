@@ -63,7 +63,7 @@
                           <Component id="burgerButton" max="32767" attributes="0"/>
                           <Component id="WrapsButton" max="32767" attributes="0"/>
                           <Component id="AppetizerButton" max="32767" attributes="0"/>
-                          <Component id="sandwitchButton" min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="sandwichButton" min="-2" pref="99" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -97,7 +97,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="AppetizerButton" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="sandwitchButton" min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="sandwichButton" min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -160,13 +160,13 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AppetizerButtonMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="sandwitchButton">
+    <Component class="javax.swing.JButton" name="sandwichButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sandwitch"/>
+        <Property name="text" type="java.lang.String" value="Sandwich"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sandwitchButtonMouseClicked"/>
-        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sandwitchButtonMouseEntered"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sandwichButtonMouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="sandwichButtonMouseEntered"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

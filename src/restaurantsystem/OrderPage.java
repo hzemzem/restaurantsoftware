@@ -24,7 +24,7 @@ public class OrderPage extends javax.swing.JFrame {
     /**
      * Creates new form OrderPage
      */
-    final int SANDWITCH = 0;
+    final int SANDWICH = 0;
     final  int WRAPS = 1;
     final  int BURGERS = 2;
     final  int APPETIZERS = 3;
@@ -86,7 +86,7 @@ public class OrderPage extends javax.swing.JFrame {
             WrapsButton.setBackground(yellow);
             burgerButton.setBackground(yellow);
             saladButton.setBackground(yellow);
-            sandwitchButton.setBackground(yellow);
+            sandwichButton.setBackground(yellow);
             
             jButton3.setBackground(red);
             jButton4.setBackground(red);
@@ -158,7 +158,7 @@ public class OrderPage extends javax.swing.JFrame {
         WrapsButton = new javax.swing.JButton();
         saladButton = new javax.swing.JButton();
         AppetizerButton = new javax.swing.JButton();
-        sandwitchButton = new javax.swing.JButton();
+        sandwichButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         SubmitButton = new javax.swing.JButton();
@@ -211,13 +211,13 @@ public class OrderPage extends javax.swing.JFrame {
             }
         });
 
-        sandwitchButton.setText("Sandwitch");
-        sandwitchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        sandwichButton.setText("Sandwich");
+        sandwichButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sandwitchButtonMouseClicked(evt);
+                sandwichButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                sandwitchButtonMouseEntered(evt);
+                sandwichButtonMouseEntered(evt);
             }
         });
 
@@ -324,7 +324,7 @@ public class OrderPage extends javax.swing.JFrame {
                             .addComponent(burgerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(WrapsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AppetizerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(sandwitchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(sandwichButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(431, 431, 431))
         );
         layout.setVerticalGroup(
@@ -352,7 +352,7 @@ public class OrderPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(AppetizerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(sandwitchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sandwichButton, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Balance, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,13 +382,13 @@ public class OrderPage extends javax.swing.JFrame {
      */
     void addFoodItems()
     {
-        foodArray.get(SANDWITCH).add(new FoodItem("Grilled Cheese", (float) 5.50));
-        foodArray.get(SANDWITCH).add(new FoodItem("Beef Hot Dog", (float) 5.50));
-        foodArray.get(SANDWITCH).add(new FoodItem("Chicken BLT&A", (float) 10.00));
-        foodArray.get(SANDWITCH).add(new FoodItem("Cordon Blue", (float) 11.00));
-        foodArray.get(SANDWITCH).add(new FoodItem("Philly", (float) 13.50));
-        foodArray.get(SANDWITCH).add(new FoodItem("Pulled Pork", (float) 9.50));
-        foodArray.get(SANDWITCH).add(new FoodItem("Club", (float) 10.00));
+        foodArray.get(SANDWICH).add(new FoodItem("Grilled Cheese", (float) 5.50));
+        foodArray.get(SANDWICH).add(new FoodItem("Beef Hot Dog", (float) 5.50));
+        foodArray.get(SANDWICH).add(new FoodItem("Chicken BLT&A", (float) 10.00));
+        foodArray.get(SANDWICH).add(new FoodItem("Cordon Blue", (float) 11.00));
+        foodArray.get(SANDWICH).add(new FoodItem("Philly", (float) 13.50));
+        foodArray.get(SANDWICH).add(new FoodItem("Pulled Pork", (float) 9.50));
+        foodArray.get(SANDWICH).add(new FoodItem("Club", (float) 10.00));
         
         foodArray.get(WRAPS).add(new FoodItem("Club", (float) 10.00));
         foodArray.get(WRAPS).add(new FoodItem("Chicken BLT&A", (float) 10.00));
@@ -485,22 +485,22 @@ public class OrderPage extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_AppetizerButtonMouseClicked
 
-    private void sandwitchButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sandwitchButtonMouseEntered
+    private void sandwichButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sandwichButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_sandwitchButtonMouseEntered
+    }//GEN-LAST:event_sandwichButtonMouseEntered
 
-    private void sandwitchButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sandwitchButtonMouseClicked
+    private void sandwichButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sandwichButtonMouseClicked
         // TODO add your handling code here:
         if(currentPanel != null)
         {
             this.remove(currentPanel);
             
         }
-        currentPanel = panel[SANDWITCH];
+        currentPanel = panel[SANDWICH];
         this.add(currentPanel);
         this.revalidate();
         this.repaint();
-    }//GEN-LAST:event_sandwitchButtonMouseClicked
+    }//GEN-LAST:event_sandwichButtonMouseClicked
 
     private void SubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubtotalActionPerformed
         // TODO add your handling code here:
@@ -613,6 +613,6 @@ public class OrderPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton saladButton;
-    private javax.swing.JButton sandwitchButton;
+    private javax.swing.JButton sandwichButton;
     // End of variables declaration//GEN-END:variables
 }
