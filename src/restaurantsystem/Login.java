@@ -6,6 +6,9 @@
 package restaurantsystem;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -18,12 +21,12 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         pin = "";
-        Color background = new Color(180,199,230);
-        Color buttonColor = new Color(41,128,185);
         
         /**
-         * setting the background color of the buttons
+         * setting the colors
          */
+        Color background = new Color(180,199,230);
+        Color buttonColor = new Color(41,128,185);
         this.getContentPane().setBackground(background);
         jButton_1.setBackground(buttonColor);
         jButton_2.setBackground(buttonColor);
@@ -38,8 +41,22 @@ public class Login extends javax.swing.JFrame {
         jButton11.setBackground(buttonColor);
         jButton12.setBackground(buttonColor);
         jButton13.setBackground(buttonColor);
-        
-        
+        jButton_1.setForeground(Color.WHITE);
+        jButton_2.setForeground(Color.WHITE);
+        jButton_3.setForeground(Color.WHITE);
+        jButton_4.setForeground(Color.WHITE);
+        jButton_5.setForeground(Color.WHITE);
+        jButton_6.setForeground(Color.WHITE);
+        jButton_7.setForeground(Color.WHITE);
+        jButton_8.setForeground(Color.WHITE);
+        jButton_9.setForeground(Color.WHITE);
+        jButton_0.setForeground(Color.WHITE);
+        jButton11.setForeground(Color.WHITE);
+        jButton12.setForeground(Color.WHITE);
+        jButton13.setForeground(Color.WHITE);
+        pinField.setForeground(Color.GRAY);
+        jLabel1.setFont(new Font("Sans", Font.BOLD, 24));
+        jLabel1.setForeground(buttonColor);
     }
     
 
@@ -65,6 +82,7 @@ public class Login extends javax.swing.JFrame {
         jButton_0 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         pinField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -160,9 +178,9 @@ public class Login extends javax.swing.JFrame {
         });
 
         jButton11.setText("Erase");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
             }
         });
 
@@ -170,6 +188,13 @@ public class Login extends javax.swing.JFrame {
         jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton12MouseClicked(evt);
+            }
+        });
+
+        jButton13.setText("Back");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
             }
         });
 
@@ -196,8 +221,11 @@ public class Login extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addComponent(jButton12))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton_0, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+		                    		.addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    		.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+		                    		.addComponent(jButton_0, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton_1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -210,7 +238,7 @@ public class Login extends javax.swing.JFrame {
                                 .addGap(3, 3, 3)
                                 .addComponent(jButton11))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
+                        .addGap(58, 58, 58)
                         .addComponent(jLabel1))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(pinField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,14 +275,28 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jButton_3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_0, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Update pin field
+     */
+    private void updateText() {
+    	if (pin.length() == 0) {
+    		pinField.setText("Enter PIN");
+    		pinField.setForeground(Color.GRAY);
+    	} else {
+    		pinField.setText(pin);
+    		pinField.setForeground(Color.BLACK);
+    	}
+    }
+    
     private void jButton_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_1ActionPerformed
@@ -262,10 +304,6 @@ public class Login extends javax.swing.JFrame {
     private void jButton_8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton_8ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
 
     private void pinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinFieldActionPerformed
         // TODO add your handling code here:
@@ -287,7 +325,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_1MouseClicked
         // TODO add your handling code here:
         pin = pin + "1";
-        pinField.setText(pin);
+        updateText();
        
     }//GEN-LAST:event_jButton_1MouseClicked
 
@@ -298,7 +336,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_2MouseClicked
         // TODO add your handling code here:
         pin = pin + "2";
-        pinField.setText(pin);
+        updateText();
        
     }//GEN-LAST:event_jButton_2MouseClicked
 
@@ -310,7 +348,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_3MouseClicked
         // TODO add your handling code here:
         pin = pin + "3";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_3MouseClicked
 
     /**
@@ -320,7 +358,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_4MouseClicked
         // TODO add your handling code here:
         pin = pin + "4";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_4MouseClicked
 
 
@@ -331,7 +369,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_5MouseClicked
         // TODO add your handling code here:
         pin = pin + "5";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_5MouseClicked
 
     /**
@@ -341,7 +379,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_6MouseClicked
         // TODO add your handling code here:
         pin = pin + "6";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_6MouseClicked
 
     /**
@@ -351,7 +389,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_7MouseClicked
         // TODO add your handling code here:
         pin = pin + "7";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_7MouseClicked
 
     /**
@@ -361,7 +399,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_8MouseClicked
         // TODO add your handling code here:
         pin = pin + "8";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_8MouseClicked
 
     /**
@@ -371,7 +409,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_9MouseClicked
         // TODO add your handling code here:
         pin = pin + "9";
-        pinField.setText(pin);
+        updateText();
     }//GEN-LAST:event_jButton_9MouseClicked
 
     /**
@@ -381,10 +419,20 @@ public class Login extends javax.swing.JFrame {
     private void jButton_0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_0MouseClicked
         // TODO add your handling code here:
         pin = pin + "0";
-        pinField.setText(pin);
+        updateText();
 
 
     }//GEN-LAST:event_jButton_0MouseClicked
+
+    /**
+     * This function handles the clear button
+     * @param evt
+     */
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        pin = "";
+        updateText();
+    }//GEN-LAST:event_jButton11MouseClicked
 
     /**
      * This function handles the sign in  button
@@ -416,14 +464,24 @@ public class Login extends javax.swing.JFrame {
         {
             //System.out.println("error");
             JOptionPane.showMessageDialog(null,
-                "Error. Invalid pin entered");
-            System.exit(0);
+                "Error. Invalid pin entered.\nPlease try again");
+            pin = "";
+            updateText();
         }
     }//GEN-LAST:event_jButton12MouseClicked
 
     /**
-     * @param args the command line arguments
+     * This function handles the backspace button
+     * @param evt
      */
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+    	if (pin.length() > 0) {
+    		pin = pin.substring(0, pin.length()-1);
+    	}
+        updateText();
+    }//GEN-LAST:event_jButton13MouseClicked
+
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -459,6 +517,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton_0;
     private javax.swing.JButton jButton_1;
     private javax.swing.JButton jButton_2;
