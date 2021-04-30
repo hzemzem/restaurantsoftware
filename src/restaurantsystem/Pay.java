@@ -34,10 +34,15 @@ public class Pay extends javax.swing.JFrame {
             {
                 sum += f.getPrice();
             }
+            
             Subtotal.setText(Float.toString(sum));
-            Tax.setText(Float.toString(sum*(float)0.10));
-            Total.setText(Float.toString(sum*(float)1.10));
-            Balance.setText(Float.toString(sum* (float)1.10));
+
+            float tax = sum*(float)0.10;
+            float total = sum + tax;
+            
+            Tax.setText(Float.toString((float)Math.floor(tax * 100) / 100));
+            Total.setText(Float.toString((float)Math.floor((total) * 100) / 100) );
+            Balance.setText(Float.toString((float)Math.floor((total) * 100) / 100) );
     }
     /**
      * This method is called from within the constructor to initialize the form.
