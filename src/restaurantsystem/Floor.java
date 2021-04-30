@@ -122,10 +122,10 @@ public class Floor extends javax.swing.JFrame {
                         null, options1, null);
                 if (result == JOptionPane.YES_OPTION){
                     Table table = r.tables[tableNo];
-                    table.setOrder(0, new Order(customer1.getText()));
-                    table.setOrder(1, new Order(customer2.getText()));
-                    table.setOrder(2, new Order(customer3.getText()));
-                    table.setOrder(3, new Order(customer4.getText()));
+                    table.setOrder(0, new Order(tableNo, customer1.getText()));
+                    table.setOrder(1, new Order(tableNo, customer2.getText()));
+                    table.setOrder(2, new Order(tableNo, customer3.getText()));
+                    table.setOrder(3, new Order(tableNo, customer4.getText()));
                     r.tables[tableNo].status = 1;
                     button[tableNo].setBackground(yellow);
                     //System.out.println(r.customerNames[tableNo] );
@@ -244,7 +244,8 @@ public class Floor extends javax.swing.JFrame {
         System.out.println("Total Orders: " + r.orderlist.size());
         for(int i = 0; i < r.orderlist.size();i++)
         {
-            System.out.println("Order#"+ String.valueOf(i+1));
+            System.out.println("Order#"+ String.valueOf(i+1) + ": For " + r.orderlist.get(i).getName()
+                    + " at Table " + r.orderlist.get(i).getTableNo());
             for(int j = 0; j< r.orderlist.get(i).getOrderList().size() ; j++)
             {
                 System.out.println(r.orderlist.get(i).getOrderList().get(j).getName());

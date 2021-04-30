@@ -53,6 +53,7 @@ public class OrderPage extends javax.swing.JFrame {
         table = r.tables[tableNo];
         this.customer = customer;
         initComponents();
+        repopulateTable();
         for(int i = 0; i < categoryCount; i++)
         {
             foodArray.add(new ArrayList<FoodItem>()); 

@@ -18,6 +18,7 @@ public class Order {
     private ArrayList<FoodItem> orderList;
 
     private String customerName;
+    private int tableNo;
 
     
     public ArrayList<FoodItem> getOrderList() {
@@ -30,12 +31,16 @@ public class Order {
 
     public String getName() { return customerName;}
 
-    public Order(String name, ArrayList<FoodItem> orderList) {
+    public int getTableNo() {
+        return tableNo;
+    }
+
+    public Order(int tableNo, String name, ArrayList<FoodItem> orderList) {
         this.customerName = name;
         this.orderList = orderList;
     }
 
-    public Order(String name) {
+    public Order(int tableNo, String name) {
         this.customerName = name;
         this.orderList = new ArrayList<>();
     }
