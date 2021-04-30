@@ -29,7 +29,7 @@ public class Driver {
             String token[] = data.split(",");
             String username = token[0];
             String password = token[1];
-            r.addWaiter(new waiter(username, password));
+            r.addWaiter(new Waiter(username, password));
         }
         /**
         * login starts the program

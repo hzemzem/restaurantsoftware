@@ -20,6 +20,7 @@ import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 public class OrderPage extends javax.swing.JFrame {
+    RestaurantSystem r = RestaurantSystem.getInstance();
 
     /**
      * Creates new form OrderPage
@@ -29,9 +30,11 @@ public class OrderPage extends javax.swing.JFrame {
     final  int BURGERS = 2;
     final  int APPETIZERS = 3;
     final  int SALADS = 4;
-    Order order;
     
     int categoryCount = 5;
+
+    Table table;
+    int customer;
     
     /**
      * Array of panels to show different categories
@@ -46,9 +49,10 @@ public class OrderPage extends javax.swing.JFrame {
     ArrayList<ArrayList<FoodItem>> foodArray = new ArrayList<>();
     JPanel currentPanel = null;
     Color buttonColor = new Color(41,128,185);
-    public OrderPage() {
+    public OrderPage(int tableNo, int customer) {
+        table = r.tables[tableNo];
+        this.customer = customer;
         initComponents();
-        order = new Order();
         for(int i = 0; i < categoryCount; i++)
         {
             foodArray.add(new ArrayList<FoodItem>()); 
@@ -109,7 +113,7 @@ public class OrderPage extends javax.swing.JFrame {
     {
         DefaultTableModel dt = (DefaultTableModel)jTable1.getModel();
         dt.setRowCount(0);
-        for(FoodItem f: order.getOrderList())
+        for(FoodItem f: table.getOrder(customer).getOrderList())
         {
             dt.addRow(new Object[]{f.getName(), f.getPrice()});   
         }
@@ -129,10 +133,10 @@ public class OrderPage extends javax.swing.JFrame {
         
         public void mouseClicked(MouseEvent e) {
             RestaurantSystem r = RestaurantSystem.getInstance();
-            order.addItem(Item);
+            table.getOrder(customer).addItem(Item);
             repopulateTable();
             float sum = 0;
-            for(FoodItem f: order.getOrderList())
+            for(FoodItem f: table.getOrder(customer).getOrderList())
             {
                 sum += f.getPrice();
             }
@@ -521,9 +525,9 @@ public class OrderPage extends javax.swing.JFrame {
     private void SubmitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitButtonMouseClicked
         // TODO add your handling code here:
         RestaurantSystem r = RestaurantSystem.getInstance();
-        r.orderlist.add(order);
+        r.orderlist.add(table.getOrder(customer));
         this.setVisible(false);
-        Pay.start(order);
+        Pay.start(table.getOrder(customer));
         
     }//GEN-LAST:event_SubmitButtonMouseClicked
 
@@ -532,12 +536,12 @@ public class OrderPage extends javax.swing.JFrame {
         int selectedRow = jTable1.getSelectedRow();
         if(selectedRow >= 0 )
         {
-            order.getOrderList().remove(selectedRow);
+            table.getOrder(customer).getOrderList().remove(selectedRow);
             repopulateTable();
             error.setText("");
             
             float sum = 0;
-            for(FoodItem f: order.getOrderList())
+            for(FoodItem f: table.getOrder(customer).getOrderList())
             {
                 sum += f.getPrice();
             }
@@ -556,15 +560,12 @@ public class OrderPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         RestaurantSystem r = RestaurantSystem.getInstance();
-        r.orderlist.add(order);
+        r.orderlist.add(table.getOrder(customer));
         this.setVisible(false);
-        Pay.start(order);
+        Pay.start(table.getOrder(customer));
     }//GEN-LAST:event_jButton1MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void start() {
+    public static void start(int table, int customer) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -591,7 +592,7 @@ public class OrderPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OrderPage().setVisible(true);
+                new OrderPage(table, customer).setVisible(true);
             }
         });
     }

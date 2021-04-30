@@ -5,19 +5,10 @@
  */
 package restaurantsystem;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 public class Floor extends javax.swing.JFrame {
 
@@ -31,10 +22,11 @@ public class Floor extends javax.swing.JFrame {
     int tableCount = r.tablesCount;
     
     
-    Color yellow = new Color(253,192,5);
-    Color red = new Color(174,70,69);
-    Color green = new Color(112,172,71);
-    Color background = new Color(41,128,185);
+    Color yellow = new Color(199, 151, 11);
+    Color red = new Color(146, 56, 55);
+    Color green = new Color(79, 127, 45);
+    Color background = new Color(180,199,230);
+    Color buttonColor = new Color(41,128,185);
     
     JFrame frame;
     
@@ -59,12 +51,14 @@ public class Floor extends javax.swing.JFrame {
         {
             button[i] = new JButton();
             button[i].setText(String.valueOf(i+1));
+            button[i].setForeground(Color.WHITE);
+            button[i].setFont(new Font("Sans", Font.BOLD, 16));
             button[i].addMouseListener(new MouseHandler(i));
-            if(r.tables[i] == 0)
+            if(r.tables[i].status == 0)
                 button[i].setBackground(green);
-            else if(r.tables[i] == 1)
+            else if(r.tables[i].status == 1)
                 button[i].setBackground(yellow);
-            else if(r.tables[i] == 2)
+            else if(r.tables[i].status == 2)
                 button[i].setBackground(red);
             button[i].setPreferredSize(new Dimension(70, 70));
                 //blocks[i][j].setSize(jPanel1.getWidth()/wid, jPanel1.getHeight()/hei);
@@ -76,6 +70,13 @@ public class Floor extends javax.swing.JFrame {
        
         this.getContentPane().setBackground(background);
         this.add(Panel);
+
+        jButton1.setForeground(Color.WHITE);
+        jButton1.setBackground(buttonColor);
+        jButton1.setFont(new Font("Sans", Font.BOLD, 14));
+        jButton2.setForeground(Color.WHITE);
+        jButton2.setBackground(buttonColor);
+        jButton2.setFont(new Font("Sans", Font.BOLD, 14));
     }
     
     /**
@@ -96,53 +97,67 @@ public class Floor extends javax.swing.JFrame {
             /**
              * The case when the table is Green
              */
-            if(r.tables[tableNo] == 0)
+            if(r.tables[tableNo].status == 0)
             {
                
                 Object[] options1 = {  "Continue","Go Back" };
 
                 JPanel panel = new JPanel();
-                panel.add(new JLabel("Enter Customer Name"));
-                JTextField textField = new JTextField(10);
-                panel.add(textField);
+                JTextField customer1 = new JTextField(10);
+                JTextField customer2 = new JTextField(10);
+                JTextField customer3 = new JTextField(10);
+                JTextField customer4 = new JTextField(10);
+                panel.add(new JLabel("Customer #1"));
+                panel.add(customer1);
+                panel.add(new JLabel("Customer #2"));
+                panel.add(customer2);
+                panel.add(new JLabel("Customer #3"));
+                panel.add(customer3);
+                panel.add(new JLabel("Customer #4"));
+                panel.add(customer4);
+
 
                 int result = JOptionPane.showOptionDialog(null, panel, "Assign Table",
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
                         null, options1, null);
                 if (result == JOptionPane.YES_OPTION){
-                    r.customerNames[tableNo] = textField.getText();
-                    r.tables[tableNo] = 1;
+                    Table table = r.tables[tableNo];
+                    table.setOrder(0, new Order(customer1.getText()));
+                    table.setOrder(1, new Order(customer2.getText()));
+                    table.setOrder(2, new Order(customer3.getText()));
+                    table.setOrder(3, new Order(customer4.getText()));
+                    r.tables[tableNo].status = 1;
                     button[tableNo].setBackground(yellow);
                     //System.out.println(r.customerNames[tableNo] );
                     JOptionPane.showMessageDialog(null, "Table Assigned");
-                    
                 }
 
             }
             /**
              * The case when the table is Yellow
              */
-            else if(r.tables[tableNo] == 1)
+            else if(r.tables[tableNo].status == 1)
             {
                 UIManager UI=new UIManager();
                 UI.put("OptionPane.background", background);
                 UI.put("Panel.background", background);
 
-                int result = JOptionPane.showConfirmDialog(null, 
-                                "Manage Order for "+ r.customerNames[tableNo],
-                                null, 
-                                JOptionPane.YES_NO_OPTION);
-                if(result == JOptionPane.YES_OPTION)
-                {
+                Object[] whichCustomer = {r.tables[tableNo].getOrder(0).getName(),
+                        r.tables[tableNo].getOrder(1).getName(),
+                        r.tables[tableNo].getOrder(2).getName(),
+                        r.tables[tableNo].getOrder(3).getName()};
+
+                int result = JOptionPane.showOptionDialog(null,
+                                "Which customer's order do you want to manage",
+                                "Manage Order", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, whichCustomer, null);
                     frame.setVisible(false);
-                    OrderPage.start();
-                }
+                    OrderPage.start(tableNo, result);
                
             }
             /**
              * The case when the table is red
              */
-            else if(r.tables[tableNo] == 2)
+            else if(r.tables[tableNo].status == 2)
             {
                 Object[] options1 = {  "Continue","Go Back" };
                 JPanel panel = new JPanel();
@@ -151,7 +166,7 @@ public class Floor extends javax.swing.JFrame {
                         JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
                         null, options1, null);
                 if (result == JOptionPane.YES_OPTION){
-                    r.tables[tableNo] = 0;
+                    r.tables[tableNo].status = 0;
                     button[tableNo].setBackground(green);
                     JOptionPane.showMessageDialog(null, "Table Cleaning Done");
 
@@ -237,9 +252,6 @@ public class Floor extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2MouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -17,6 +17,8 @@ public class Order {
      */
     private ArrayList<FoodItem> orderList;
 
+    private String customerName;
+
     
     public ArrayList<FoodItem> getOrderList() {
         return orderList;
@@ -26,13 +28,18 @@ public class Order {
         this.orderList = orderList;
     }
 
-    public Order(ArrayList<FoodItem> orderList) {
+    public String getName() { return customerName;}
+
+    public Order(String name, ArrayList<FoodItem> orderList) {
+        this.customerName = name;
         this.orderList = orderList;
     }
-    
-    public Order() {
+
+    public Order(String name) {
+        this.customerName = name;
         this.orderList = new ArrayList<>();
     }
+
     /**
      * This adds foodItem to the orderlist
      * @param f 

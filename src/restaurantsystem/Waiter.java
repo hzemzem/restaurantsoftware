@@ -9,7 +9,7 @@ package restaurantsystem;
  *
  * This class stores information for the waiter
  */
-public class waiter {
+public class Waiter {
     /**
     * Name of the waiter is stored in username 
     */
@@ -19,7 +19,7 @@ public class waiter {
     */
     private String password;
 
-    public waiter(String username, String password) {
+    public Waiter(String username, String password) {
         this.username = username;
         this.password = password;
     }

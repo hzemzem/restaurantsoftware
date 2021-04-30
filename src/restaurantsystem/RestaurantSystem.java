@@ -5,7 +5,6 @@
  */
 package restaurantsystem;
 
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -18,7 +17,7 @@ class RestaurantSystem
     /**
      * waiterList stores information regarding all the waiters
      */
-    ArrayList<waiter> waiterList ;
+    ArrayList<Waiter> waiterList ;
     
     /**
      * orderlist stores information regarding all the orders
@@ -28,17 +27,12 @@ class RestaurantSystem
     /**
      * tablesCount stores the number of tables on floor
      */
-    int tablesCount = 30; 
-    
-    /**
-     * customersNames stores the name of the customers
-     */
-    String[] customerNames; 
+    int tablesCount = 30;
     
     /**
      * tables integer array store the current state of the table. Different values is assigned based on whether it is red, green, or yellow
      */
-    int tables[];
+    Table tables[];
 
     
 
@@ -53,8 +47,10 @@ class RestaurantSystem
         
         waiterList = new ArrayList<>();
         orderlist = new ArrayList<>();
-        tables = new int[tablesCount];
-        customerNames = new String[tablesCount];
+        tables = new Table[tablesCount];
+        for (int i=0; i<tablesCount; i++) {
+            tables[i] = new Table(i);
+        }
         
         
         /**
@@ -64,10 +60,10 @@ class RestaurantSystem
         {
             Random rand = new Random();
             int index = rand.nextInt(30);
-            tables[index] = 1;
-            customerNames[index] = "Customer#" + String.valueOf(index);
-            
-            
+            tables[index].status = 1;
+            for (int j = 0; j < 4; j++) {
+                tables[index].setOrder(j, new Order("Customer#" + String.valueOf(index) + '.' + String.valueOf(j)));
+            }
         }
         /**
          * Making red tables and assigning them at random indexes
@@ -75,7 +71,7 @@ class RestaurantSystem
         for(int i = 0; i < 5; i++)
         {
             Random rand = new Random();
-            tables[rand.nextInt(30)] = 2;
+            tables[rand.nextInt(30)].status = 2;
             
         }
         
@@ -85,7 +81,7 @@ class RestaurantSystem
    /**
     * Adds waiter to the waiterlist
     */
-    void addWaiter(waiter w)
+    void addWaiter(Waiter w)
     {
         waiterList.add(w);
     }
@@ -102,7 +98,7 @@ class RestaurantSystem
     */
     boolean logInWaiter(String pin)
     {
-        for(waiter w: waiterList)
+        for(Waiter w: waiterList)
         {
             if(w.getPassword().equals(pin))
                 return true;
@@ -117,7 +113,7 @@ class RestaurantSystem
      */
     String getWaiterName(String pin)
     {
-        for(waiter w: waiterList)
+        for(Waiter w: waiterList)
         {
             if(w.getPassword().equals(pin))
                 return w.getUsername();

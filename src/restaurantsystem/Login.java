@@ -5,9 +5,7 @@
  */
 package restaurantsystem;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import java.awt.*;
 
 import javax.swing.JOptionPane;
 
@@ -54,6 +52,19 @@ public class Login extends javax.swing.JFrame {
         jButton11.setForeground(Color.WHITE);
         jButton12.setForeground(Color.WHITE);
         jButton13.setForeground(Color.WHITE);
+        jButton_1.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_2.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_3.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_4.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_5.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_6.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_7.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_8.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_9.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton_0.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton11.setFont(new Font("Sans", Font.BOLD, 14));
+        jButton12.setFont(new Font("Sans", Font.BOLD, 16));
+        jButton13.setFont(new Font("Sans", Font.BOLD, 14));
         pinField.setForeground(Color.GRAY);
         jLabel1.setFont(new Font("Sans", Font.BOLD, 24));
         jLabel1.setForeground(buttonColor);
@@ -83,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        pinField = new javax.swing.JTextField();
+        pinField = new javax.swing.JTextField("Enter PIN");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -177,7 +188,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton11.setText("Erase");
+        jButton11.setText("CLR");
         jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton11MouseClicked(evt);
@@ -191,14 +202,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setText("Back");
+        jButton13.setText("BKS");
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton13MouseClicked(evt);
             }
         });
 
-        pinField.setText("Enter PIN");
         pinField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pinFieldActionPerformed(evt);
@@ -218,12 +228,11 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jButton_5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton_6, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton12))
+                        .addGap(30, 30, 30))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-		                    		.addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+		                    		.addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
 		                    		.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 		                    		.addComponent(jButton_0, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -236,7 +245,7 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(jButton_3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
-                                .addComponent(jButton11))))
+                                .addComponent(jButton13))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(jLabel1))
@@ -247,7 +256,9 @@ public class Login extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jButton_8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jButton_9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jButton_9, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jButton12))))
                 .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -261,13 +272,13 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_8, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_9, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -307,6 +318,13 @@ public class Login extends javax.swing.JFrame {
 
     private void pinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinFieldActionPerformed
         // TODO add your handling code here:
+        if (pin=="") {
+            char tmp = pinField.getText().charAt(pinField.getText().length()-1);
+            pinField.setText(String.valueOf(tmp));
+            pinField.setForeground(Color.BLACK);
+        }
+        pin = pinField.getText();
+        updateText();
     }//GEN-LAST:event_pinFieldActionPerformed
 
     private void jButton_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_4MouseEntered
