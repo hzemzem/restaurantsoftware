@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         jButton_0.setBackground(buttonColor);
         jButton11.setBackground(buttonColor);
         jButton12.setBackground(buttonColor);
+        jButton13.setBackground(buttonColor);
         
         
     }
@@ -270,6 +271,15 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pinFieldActionPerformed
 
+    private void jButton_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_4MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_4MouseEntered
+
+
+    private void jButton_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton_4ActionPerformed
+
     /**
      * Concatenate 1 to pin string when it is pressed
      * @param evt 
@@ -280,23 +290,6 @@ public class Login extends javax.swing.JFrame {
         pinField.setText(pin);
        
     }//GEN-LAST:event_jButton_1MouseClicked
-
-    
-    private void jButton_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_4ActionPerformed
-
-    /**
-     * Concatenate 0 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_0MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "0";
-        pinField.setText(pin);
-
-        
-    }//GEN-LAST:event_jButton_0MouseClicked
 
     /**
      * Concatenate 2 to pin string when it is pressed
@@ -320,19 +313,78 @@ public class Login extends javax.swing.JFrame {
         pinField.setText(pin);
     }//GEN-LAST:event_jButton_3MouseClicked
 
-    private void jButton_4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_4MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_4MouseEntered
-
     /**
      * Concatenate 4 to pin string when it is pressed
-     * @param evt 
+     * @param evt
      */
     private void jButton_4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_4MouseClicked
         // TODO add your handling code here:
         pin = pin + "4";
         pinField.setText(pin);
     }//GEN-LAST:event_jButton_4MouseClicked
+
+
+    /**
+     * Concatenate 5 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_5MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "5";
+        pinField.setText(pin);
+    }//GEN-LAST:event_jButton_5MouseClicked
+
+    /**
+     * Concatenate 6 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_6MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "6";
+        pinField.setText(pin);
+    }//GEN-LAST:event_jButton_6MouseClicked
+
+    /**
+     * Concatenate 7 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_7MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "7";
+        pinField.setText(pin);
+    }//GEN-LAST:event_jButton_7MouseClicked
+
+    /**
+     * Concatenate 8 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_8MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "8";
+        pinField.setText(pin);
+    }//GEN-LAST:event_jButton_8MouseClicked
+
+    /**
+     * Concatenate 9 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_9MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "9";
+        pinField.setText(pin);
+    }//GEN-LAST:event_jButton_9MouseClicked
+
+    /**
+     * Concatenate 0 to pin string when it is pressed
+     * @param evt
+     */
+    private void jButton_0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_0MouseClicked
+        // TODO add your handling code here:
+        pin = pin + "0";
+        pinField.setText(pin);
+
+
+    }//GEN-LAST:event_jButton_0MouseClicked
 
     /**
      * This function handles the sign in  button
@@ -368,57 +420,6 @@ public class Login extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jButton12MouseClicked
-
-    
-    /**
-     * Concatenate 5 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_5MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "5";
-        pinField.setText(pin);
-    }//GEN-LAST:event_jButton_5MouseClicked
-
-    /**
-     * Concatenate 6 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_6MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "6";
-        pinField.setText(pin);
-    }//GEN-LAST:event_jButton_6MouseClicked
-
-    /**
-     * Concatenate 7 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_7MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "7";
-        pinField.setText(pin);
-    }//GEN-LAST:event_jButton_7MouseClicked
-
-    /**
-     * Concatenate 8 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_8MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "8";
-        pinField.setText(pin);
-    }//GEN-LAST:event_jButton_8MouseClicked
-
-    /**
-     * Concatenate 9 to pin string when it is pressed
-     * @param evt 
-     */
-    private void jButton_9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_9MouseClicked
-        // TODO add your handling code here:
-        pin = pin + "9";
-        pinField.setText(pin);
-    }//GEN-LAST:event_jButton_9MouseClicked
 
     /**
      * @param args the command line arguments
