@@ -62,7 +62,7 @@ class RestaurantSystem
             int index = rand.nextInt(30);
             tables[index].status = 1;
             for (int j = 0; j < 4; j++) {
-                tables[index].setOrder(j, new Order(index, "Customer#" + String.valueOf(index) + '.' + String.valueOf(j)));
+                tables[index].setOrder(j, new Order(index+1, "Customer#" + String.valueOf(index+1) + '.' + String.valueOf(j)));
             }
         }
         /**

@@ -35,6 +35,7 @@ public class OrderPage extends javax.swing.JFrame {
 
     Table table;
     int customer;
+    boolean newOrder = false;
     
     /**
      * Array of panels to show different categories
@@ -52,6 +53,9 @@ public class OrderPage extends javax.swing.JFrame {
     public OrderPage(int tableNo, int customer) {
         table = r.tables[tableNo];
         this.customer = customer;
+        if(table.getOrder(customer).getOrderList().size() == 0) {
+            newOrder = true;
+        }
         initComponents();
         repopulateTable();
         for(int i = 0; i < categoryCount; i++)
@@ -526,7 +530,9 @@ public class OrderPage extends javax.swing.JFrame {
     private void SubmitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SubmitButtonMouseClicked
         // TODO add your handling code here:
         RestaurantSystem r = RestaurantSystem.getInstance();
-        r.orderlist.add(table.getOrder(customer));
+        if(newOrder) {
+            r.orderlist.add(table.getOrder(customer));
+        }
         this.setVisible(false);
         Pay.start(table.getOrder(customer));
         
@@ -561,7 +567,9 @@ public class OrderPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         RestaurantSystem r = RestaurantSystem.getInstance();
-        r.orderlist.add(table.getOrder(customer));
+        if(newOrder) {
+            r.orderlist.add(table.getOrder(customer));
+        }
         this.setVisible(false);
         Pay.start(table.getOrder(customer));
     }//GEN-LAST:event_jButton1MouseClicked

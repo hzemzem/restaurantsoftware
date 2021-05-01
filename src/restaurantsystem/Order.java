@@ -36,11 +36,13 @@ public class Order {
     }
 
     public Order(int tableNo, String name, ArrayList<FoodItem> orderList) {
+        this.tableNo = tableNo;
         this.customerName = name;
         this.orderList = orderList;
     }
 
     public Order(int tableNo, String name) {
+        this.tableNo = tableNo;
         this.customerName = name;
         this.orderList = new ArrayList<>();
     }

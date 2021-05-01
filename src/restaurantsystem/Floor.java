@@ -122,10 +122,10 @@ public class Floor extends javax.swing.JFrame {
                         null, options1, null);
                 if (result == JOptionPane.YES_OPTION){
                     Table table = r.tables[tableNo];
-                    table.setOrder(0, new Order(tableNo, customer1.getText()));
-                    table.setOrder(1, new Order(tableNo, customer2.getText()));
-                    table.setOrder(2, new Order(tableNo, customer3.getText()));
-                    table.setOrder(3, new Order(tableNo, customer4.getText()));
+                    table.setOrder(0, new Order(tableNo+1, customer1.getText()));
+                    table.setOrder(1, new Order(tableNo+1, customer2.getText()));
+                    table.setOrder(2, new Order(tableNo+1, customer3.getText()));
+                    table.setOrder(3, new Order(tableNo+1, customer4.getText()));
                     r.tables[tableNo].status = 1;
                     button[tableNo].setBackground(yellow);
                     //System.out.println(r.customerNames[tableNo] );
@@ -250,6 +250,7 @@ public class Floor extends javax.swing.JFrame {
             {
                 System.out.println(r.orderlist.get(i).getOrderList().get(j).getName());
             }
+            System.out.println();
         }
     }//GEN-LAST:event_jButton2MouseClicked
 
